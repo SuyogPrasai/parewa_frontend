@@ -10,7 +10,7 @@ const Header = () => {
     { href: '#email', text: 'Newsletter' },
     { href: '#info', text: 'About' },
     { href: '#contributors', text: 'Contributors' },
-    { href: '#', text: 'FAQs' }
+    { href: '#faqs', text: 'FAQs' }
   ];
 
   return (
