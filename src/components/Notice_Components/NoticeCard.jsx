@@ -27,7 +27,7 @@ const NoticeCard = ({ title, description, author, date, tag, onClick }) => {
   return (
     <div 
       onClick={onClick}
-      className="flex justify-between p-4 bg-white border border-gray-200 shadow-lg rounded-lg mb-4 
+      className="flex flex-col sm:flex-row justify-between p-4 bg-white border border-gray-200 shadow-lg rounded-lg mb-4 
                   transition-transform transform hover:scale-105 hover:shadow-xl duration-300 ease-in-out cursor-pointer relative"
     >
       <div className="flex-grow">
@@ -35,26 +35,26 @@ const NoticeCard = ({ title, description, author, date, tag, onClick }) => {
           <span>{date}</span> &bull; <span>Posted by {author}</span>
         </div>
         <h3 className="text-lg font-semibold text-primary mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600 mb-4 sm:mb-0">{description}</p>
+
+        {/* Tag Styling - Below description in mobile, repositioned in desktop */}
+        {tag && (
+          <span 
+            className="mt-10 sm:mt-0 sm:absolute sm:top-5 sm:right-14 px-2 py-1 text-xs font-medium text-white"
+            style={{
+              backgroundColor: tag === 'Important' ? '#FF6347' : tag === 'Event' ? '#20B2AA' : '#4682B4',
+              color: 'white',
+              fontFamily: 'Arial, sans-serif',
+              borderRadius: '4px',
+            }}
+          >
+            {tag}
+          </span>
+        )}
       </div>
 
-      {/* Tag Styling */}
-      {tag && (
-        <span 
-          className="absolute top-22 right-50 right-16 px-2 py-1 text-xs font-medium text-white bg-blue-500"
-          style={{
-            backgroundColor: tag === 'Important' ? '#FF6347' : tag === 'Event' ? '#20B2AA' : '#4682B4',
-            color: 'white',
-            fontFamily: 'Arial, sans-serif',
-            borderRadius: '4px',
-          }}
-        >
-          {tag}
-        </span>
-      )}
-
       {/* Voting Section */}
-      <div className="flex flex-col items-center justify-center pl-4 space-y-1">
+      <div className="flex flex-row sm:flex-col items-center justify-center pl-4 space-x-4 sm:space-x-0 sm:space-y-1 mt-2 sm:mt-0">
         <button
           onClick={(e) => { e.stopPropagation(); handleUpvote(); }}
           className={`transition-transform duration-200 hover:-translate-y-1 ${
