@@ -2,3 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 155px;
+    scroll-behavior: smooth;
+
+}
+
+body {
+    background-color: #f3f4f6;
+    /* this ensures that body background is gray */
+}

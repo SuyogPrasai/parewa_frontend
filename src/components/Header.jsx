@@ -14,7 +14,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white h-[7rem] select-none sticky top-0 z-50 shadow-md">
+    <header className="bg-white h-[8rem] sticky top-0 z-50 shadow-md p-[0.75em]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex h-full items-center justify-between">
           {/* Logo and site name */}
