@@ -9,7 +9,7 @@ const Header = () => {
   const navItems = [
     { href: '#email', text: 'Newsletter' },
     { href: '#info', text: 'About' },
-    { href: '#', text: 'Contributors' },
+    { href: '#contributors', text: 'Contributors' },
     { href: '#', text: 'FAQs' }
   ];
 

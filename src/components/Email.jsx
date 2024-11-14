@@ -2,7 +2,7 @@ import React from 'react';
 
 const Email = () => (
   <div
-    className="mt-10 flex justify-center items-center w-full bg-gray-50 px-4 py-16 sm:px-6 lg:px-8 bg-gray-100"
+    className="mt-10 flex justify-center items-center w-full px-4 py-16 sm:px-6 lg:px-8 bg-grey-400"
     id="email"
   >
     <div className="w-full max-w-screen-lg bg-white rounded-lg shadow-2xl p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center lg:items-stretch">

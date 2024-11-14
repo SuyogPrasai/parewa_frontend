@@ -4,6 +4,8 @@ import Board from './components/Board';
 import Email from './components/Email';
 import Info from './components/Info';
 import Footer from './components/Footer';
+import ContributorsSection from './components/Contributions';
+import Faqs from './components/Faqs';
 
 const App = () => {
   return (
@@ -13,8 +15,10 @@ const App = () => {
         <Board />
         <Email />
         <Info />
+        <ContributorsSection />
       </main>
       
+      <Faqs />
       <Footer />
     </div>
   );
