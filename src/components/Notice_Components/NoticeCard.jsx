@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const NoticeCard = ({ title, description, author, date, onClick }) => {
+const NoticeCard = ({ title, description, author, date, tag, onClick }) => {
   const [votes, setVotes] = useState(0);
   const [userVote, setUserVote] = useState(null);
 
@@ -28,7 +28,7 @@ const NoticeCard = ({ title, description, author, date, onClick }) => {
     <div 
       onClick={onClick}
       className="flex justify-between p-4 bg-white border border-gray-200 shadow-lg rounded-lg mb-4 
-                  transition-transform transform hover:scale-105 hover:shadow-xl duration-300 ease-in-out cursor-pointer"
+                  transition-transform transform hover:scale-105 hover:shadow-xl duration-300 ease-in-out cursor-pointer relative"
     >
       <div className="flex-grow">
         <div className="mb-1 text-gray-500 text-xs">
@@ -37,7 +37,23 @@ const NoticeCard = ({ title, description, author, date, onClick }) => {
         <h3 className="text-lg font-semibold text-primary mb-2">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
-      
+
+      {/* Tag Styling */}
+      {tag && (
+        <span 
+          className="absolute top-22 right-50 right-16 px-2 py-1 text-xs font-medium text-white bg-blue-500"
+          style={{
+            backgroundColor: tag === 'Important' ? '#FF6347' : tag === 'Event' ? '#20B2AA' : '#4682B4',
+            color: 'white',
+            fontFamily: 'Arial, sans-serif',
+            borderRadius: '4px',
+          }}
+        >
+          {tag}
+        </span>
+      )}
+
+      {/* Voting Section */}
       <div className="flex flex-col items-center justify-center pl-4 space-y-1">
         <button
           onClick={(e) => { e.stopPropagation(); handleUpvote(); }}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
-import NoticeCard from './Notice_Components/NoticeCard'; // Import NoticeCard component
+import NoticeCard from './Notice_Components/NoticeCard';
+import '../assets/styles/board.css';
 
 const Board = () => {
   const [activeComponent, setActiveComponent] = useState('General');
@@ -14,8 +15,16 @@ const Board = () => {
 
   const categoryContent = {
     General: [
-      { date: '2024-11-12', postedBy: 'Admin', title: 'School Announcement', content: 'There will be an assembly on Monday.' },
-      { date: '2024-11-10', postedBy: 'Tech Club', title: 'Club Event', content: 'Join us for a special coding workshop.' },
+      { date: '2024-11-12', postedBy: 'Admin', title: 'School Announcement', content: 'There will be an assembly on Monday.', tag: 'Important' },
+      { date: '2024-11-10', postedBy: 'Tech Club', title: 'Club Event', content: 'Join us for a special coding workshop.', tag: 'Event' },
+      { date: '2024-11-09', postedBy: 'Admin', title: 'Holiday Announcement', content: 'School will be closed for the festival.', tag: 'General' },
+      // Additional notices...
+    ],
+    School: [
+      { date: '2024-11-12', postedBy: 'Admin', title: 'School Announcement', content: 'There will be an assembly on Monday.', tag: 'Important' },
+      { date: '2024-11-10', postedBy: 'Tech Club', title: 'Club Event', content: 'Join us for a special coding workshop.', tag: 'Event' },
+      { date: '2024-11-09', postedBy: 'Admin', title: 'Holiday Announcement', content: 'School will be closed for the festival.', tag: 'General' },
+      // Additional notices...
     ],
     // Add content for other categories as necessary
   };
@@ -42,7 +51,7 @@ const Board = () => {
       <main
         className={`${
           isTabletOrMobile ? 'w-full' : 'flex-1'
-        } h-[73vh] p-6 bg-white shadow-2xl rounded-2xl border border-gray-200 overflow-auto mt-4 lg:mt-0`}
+        } h-[73vh] p-6 bg-white shadow-2xl rounded-2xl border border-gray-200 overflow-auto mt-4 lg:mt-0 custom-scrollbar`}
       >
         <h1 className="text-xl font-semibold text-gray-800 mb-4 flex items-center space-x-2">
           <span>{sidebarItems.find((item) => item.component === activeComponent).text.slice(0, 2)}</span>
@@ -59,6 +68,7 @@ const Board = () => {
               description={notice.content}
               author={notice.postedBy}
               date={notice.date}
+              tag={notice.tag}  // Pass the tag to NoticeCard
               onClick={() => console.log(`Notice clicked: ${notice.title}`)}
             />
           ))

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Info = () => (
-  <section className="relative max-w-screen-xl mx-auto py-10 px-6 md:px-12 bg-white" id="info">
+  <section className="mt-10 relative max-w-screen-xl mx-auto py-10 px-6 md:px-12 bg-white" id="info">
     {/* Overlay */}
     <div className="absolute top-0 left-0 w-full h-full bg-white opacity-40"></div>
 
